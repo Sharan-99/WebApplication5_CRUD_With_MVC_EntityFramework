@@ -1,0 +1,33 @@
+﻿@model WebApplication5_CRUD_With_MVC_EntityFramework.Models.Category
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <div>
+        <h1>Add New Category</h1>
+        @using (Html.BeginForm("Add", "Categories"))
+        {
+            @Html.ValidationSummary(false)
+            @Html.AntiForgeryToken();
+            @Html.LabelFor(e => e.Name) <br />
+            @Html.EditorFor(e => e.Name) <br />
+            @Html.ValidationMessageFor(e => e.Name) <br />
+            <input type="submit" value="Add" />  @Html.ActionLink("Back to list","Index","Categories")
+
+            <p>@ViewBag.Message</p>
+        }
+    </div>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+
+</html>

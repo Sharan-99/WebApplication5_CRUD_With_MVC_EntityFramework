@@ -1,0 +1,26 @@
+﻿@model WebApplication5_CRUD_With_MVC_EntityFramework.Models.Category
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div> 
+        <h1>Category Details</h1>
+        <dl>
+            <dt>Category Id</dt>
+            <dd>@Model.Id</dd>
+            <dt>Category Name</dt>
+            <dd>@Model.Name</dd>
+        </dl>
+        @Html.ActionLink("Back to List","Index","Categories")
+        @Html.ActionLink("Edit","Edit","Categories",new {id=Model.Id },null)
+    </div>
+</body>
+</html>

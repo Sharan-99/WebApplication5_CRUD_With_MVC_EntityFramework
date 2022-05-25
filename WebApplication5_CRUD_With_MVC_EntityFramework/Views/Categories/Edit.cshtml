@@ -1,0 +1,37 @@
+﻿@model WebApplication5_CRUD_With_MVC_EntityFramework.Models.Category
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <div>
+        <h1>Edit Category</h1>
+        @using (Html.BeginForm("Edit", "Categories"))
+        {
+            @Html.ValidationSummary(false)
+            @Html.AntiForgeryToken();
+
+            @Html.LabelFor(e => e.Id) <br />
+            @Html.EditorFor(e => e.Id, new { @readonly = true }) <br />
+            @Html.ValidationMessageFor(e => e.Id) <br />
+
+            @Html.LabelFor(e => e.Name) <br />
+            @Html.EditorFor(e => e.Name) <br />
+            @Html.ValidationMessageFor(e => e.Name) <br />
+            <input type="submit" value="Save" /> @Html.ActionLink("Back to list", "Index", "Categories")
+
+            <p>@ViewBag.Message</p>
+        }
+    </div>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

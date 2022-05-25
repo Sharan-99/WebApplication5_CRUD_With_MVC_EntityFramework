@@ -1,0 +1,40 @@
+﻿@model List<WebApplication5_CRUD_With_MVC_EntityFramework.Models.Category>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <h2>Category</h2>
+        <h4>@Html.ActionLink("Add Category","Add","Categories")</h4>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <!--<td><a href="#">Edit</a> | <a href="#">Details</a> | <a href="#">Delete</a> </td>  -->
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Categories", new { id = item.Id }, null) |
+                        @Html.ActionLink("Details", "Details", "Categories", new { id = item.Id }, null) |
+                        @Html.ActionLink("Delete", "Delete", "Categories", new { id = item.Id }, null)
+                        >
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

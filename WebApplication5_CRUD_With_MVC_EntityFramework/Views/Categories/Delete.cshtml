@@ -1,0 +1,39 @@
+﻿@model WebApplication5_CRUD_With_MVC_EntityFramework.Models.Category
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <div>
+        <h1>Delete Category</h1>
+        <h2>Are you sure to delete?</h2>
+        <dl>
+            <dt>Category Id</dt>
+            <dd>@Model.Id</dd>
+            <dt>Category Name</dt>
+            <dd>@Model.Name</dd>
+        </dl>
+
+       
+
+        @using (Html.BeginForm("DeleteConfirmed", "Categories"))
+        {
+            @Html.ActionLink("Back to List", "Index", "Categories")
+            @Html.HiddenFor(e=>e.Id)
+            <input type="submit" value="Delete" />
+        }
+
+        @if(TempData["Message"]!=null)
+            {
+                <p>@TempData["Message"].ToString()</p>
+            }
+    </div>
+</body>
+</html>
